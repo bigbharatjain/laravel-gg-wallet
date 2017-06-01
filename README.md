@@ -7,7 +7,7 @@ Integrate GG wallet in your laravel application easily with this package.
 ## Getting Started
 To get started add the following package to your `composer.json` file using this command.
 
-    composer require bharatjain/laravel-gg-wallet
+    composer require bigbharatjain/laravel-gg-wallet
 
 ## Configuring
 When composer installs Laravel GG Wallet library successfully, register the `Bharat\LaravelGGWallet\GGWalletServiceProvider` in your `config/app.php` configuration file.
