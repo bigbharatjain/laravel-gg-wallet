@@ -15,7 +15,7 @@ class GGAppProvider extends GGWalletProvider{
 		$return_array = $request->all();
 		$ggChecksum = $request->get('SIGNATURE');
 
-		$isValidChecksum = verifychecksum_e($paramList, $this->merchant_key, $paytmChecksum);
+		$isValidChecksum = verifychecksum_e($paramList, $this->merchant_key, $ggChecksum);
 		
 		if ($isValidChecksum) {
 			if ($success != null) {
