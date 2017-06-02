@@ -39,7 +39,7 @@ class GGWalletManager extends Manager implements Contracts\Factory{
 	protected function createAppDriver(){
 		$this->config = $this->app['config']['services.gg-wallet'];
 		return $this->buildProvider(
-			'Bharat\LaravelGGWallet\Providers\PaytmAppProvider',
+			'Bharat\LaravelGGWallet\Providers\GGAppProvider',
 			$this->config
 			);
 	}
