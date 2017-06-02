@@ -5,11 +5,7 @@ namespace Bharat\LaravelGGWallet;
 use Illuminate\Support\Manager;
 use Illuminate\Http\Request;
 class GGWalletManager extends Manager implements Contracts\Factory{
-	
-
 	private $config;
-
-
 
 	public function with($driver){
 		return $this->driver($driver);
@@ -67,10 +63,7 @@ class GGWalletManager extends Manager implements Contracts\Factory{
 		'MID' => $this->merchant_id,
 		'ORDER_ID' => $this->parameters['order'],
 		'CUST_ID' => $this->parameters['user'],
-		'INDUSTRY_TYPE_ID' => $this->industry_type,
-		'CHANNEL_ID' => $this->channel,
-		'TXN_AMOUNT' => $this->parameters['amount'],
-		'WEBSITE' => $this->merchant_website
+		'TXN_AMOUNT' => $this->parameters['amount']
 		];
 		return view('ggwallet::transact')->with('params', $params)->with('txn_url', $this->gg_txn_url)->with('checkSum', getChecksumFromArray($params, $this->merchant_key));
 	}
