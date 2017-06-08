@@ -88,7 +88,7 @@ class OrderController extends Controller
     {
         $transaction = GGWallet::with('receive');
         
-        $response = $transaction->response() // To get raw response as object
+        $response = $transaction->response(); // To get raw response as object
         //Check out response parameters sent by GG here
         
         if($transaction->isSuccessful()){
@@ -133,7 +133,7 @@ class OrderController extends Controller
         $status->prepare(['order' => $order->id]);
         $status->check();
         
-        $response = $status->response() // To get raw response as object
+        $response = $status->response(); // To get raw response as object
         //Check out response parameters sent by GG
         
         if($status->isSuccessful()){
