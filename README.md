@@ -5,9 +5,18 @@ For Laravel 5.0 and above
 Integrate GG wallet in your laravel application easily with this package.
 
 ## Getting Started
-To get started add the following package to your `composer.json` file using this command.
+To get started add the following package to your `composer.json` file.
 
-    composer require bigbharatjain/laravel-gg-wallet
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bigbharatjain/laravel-gg-wallet"
+        }
+    ],
+    "require": {
+        //other packages
+        "bigbharatjain/laravel-gg-wallet": "dev-master"
+    },
 
 ## Configuring
 When composer installs Laravel GG Wallet library successfully, register the `Bharat\LaravelGGWallet\GGWalletServiceProvider` in your `config/app.php` configuration file.
@@ -33,7 +42,9 @@ On your `config/services.php` add the following configuration
 'gg-wallet' => [
     'env' => 'production', // values : (local | production)
     'merchant_id' => 'YOUR_MERCHANT_ID',
-    'merchant_key' => 'YOUR_MERCHANT_KEY'
+    'merchant_key' => 'YOUR_MERCHANT_KEY',
+    'production_url' => 'http://yourproductionwalleturl.com', // Your production server wallet url
+    'local_url' => 'http://yourlocalserverwalleturl.com', // Your local server wallet url
 ],
 ```
 
@@ -62,7 +73,8 @@ class OrderController extends Controller
           'mobile_number' => $user->phonenumber,
           'email' => $user->email,
           'amount' => $order->amount,
-          'callback_url' => 'http://example.com/payment/status'
+          'callback_url' => 'http://example.com/payment/status',
+          'domain'=>'DOMAIN_NAME'
         ]);
         return $payment->receive();
     }

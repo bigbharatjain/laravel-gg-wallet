@@ -16,6 +16,7 @@ class ReceivePaymentProvider extends GGWalletProvider{
             'callback_url' => NULL,
             'email' => NULL,
             'mobile_number' => NULL,
+            'domain' => NULL
 		];
 
 		$_p = array_merge($defaults, $params);
@@ -48,6 +49,7 @@ class ReceivePaymentProvider extends GGWalletProvider{
 			'CALLBACK_URL' => $this->parameters['callback_url'],
             'MOBILE_NO' => $this->parameters['mobile_number'],
             'EMAIL' => $this->parameters['email'],
+            'DOMAIN'=> $this->parameters['domain']
         ];
 		return view('ggwallet::transact')->with('params', $params)->with('txn_url', $this->gg_txn_url)->with('checkSum', getChecksumFromArray($params, $this->merchant_key));
 	}

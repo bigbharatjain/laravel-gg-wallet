@@ -14,9 +14,10 @@ class GGWallet extends Facade
      *
      * @return string
      */
-    const STATUS_SUCCESSFUL = 'TXN_SUCCESS';
-    const STATUS_FAILURE = 'TXN_FAILURE';
+    const STATUS_SUCCESSFUL = 'SUCCESS';
+    const STATUS_FAILURE = 'FAIL';
     const STATUS_OPEN = 'OPEN';
+    const STATUS_CANCEL = 'CANCELED';
 
     const RESPONSE_SUCCESSFUL="01";
     const RESPONSE_CANCELLED = "141";

@@ -23,9 +23,9 @@ class GGWalletProvider{
 		$this->request = $request;
 		
 		if ($config['env'] == 'production') {
-			$domain = 'wallet.globalgarner.com';
+			$domain = $config['production_url'];
 		}else{
-			$domain = 'wallet.gg.com';
+			$domain = $config['local_url'];
 		}
 		$this->gg_txn_url = 'https://'.$domain.'/oltp-web/processTransaction';
 		$this->gg_txn_status_url = 'https://'.$domain.'/oltp/HANDLER_INTERNAL/TXNSTATUS';
